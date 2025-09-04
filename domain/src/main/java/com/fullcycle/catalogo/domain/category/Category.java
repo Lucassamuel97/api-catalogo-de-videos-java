@@ -1,6 +1,8 @@
 package com.fullcycle.catalogo.domain.category;
 
 import java.time.Instant;
+import com.fullcycle.catalogo.domain.validation.Error;
+import com.fullcycle.catalogo.domain.validation.ValidationHandler;
 
 public class Category {
 
@@ -60,6 +62,18 @@ public class Category {
                 aCategory.updatedAt(),
                 aCategory.deletedAt()
         );
+    }
+
+    public Category validate(final ValidationHandler aHandler) {
+        if (id == null || id.isBlank()) {
+            aHandler.append(new Error("'id' should not be empty"));
+        }
+
+        if (name == null || name.isBlank()) {
+            aHandler.append(new Error("'name' should not be empty"));
+        }
+
+        return this;
     }
 
     public String id() {
