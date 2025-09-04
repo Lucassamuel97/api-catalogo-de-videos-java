@@ -3,6 +3,7 @@ package com.fullcycle.catalogo.domain.category;
 import java.time.Instant;
 import com.fullcycle.catalogo.domain.validation.Error;
 import com.fullcycle.catalogo.domain.validation.ValidationHandler;
+import com.fullcycle.catalogo.domain.validation.handler.ThrowsValidationHandler;
 
 public class Category {
 
@@ -75,6 +76,7 @@ public class Category {
 
         return this;
     }
+
 
     public String id() {
         return id;
