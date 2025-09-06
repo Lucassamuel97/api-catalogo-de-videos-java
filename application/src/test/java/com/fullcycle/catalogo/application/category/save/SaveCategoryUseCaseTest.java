@@ -1,6 +1,7 @@
 package com.fullcycle.catalogo.application.category.save;
 
 import com.fullcycle.catalogo.application.UseCaseTest;
+import com.fullcycle.catalogo.application.category.SaveCategoryUseCase;
 import com.fullcycle.catalogo.domain.Fixture;
 import com.fullcycle.catalogo.domain.category.Category;
 import com.fullcycle.catalogo.domain.category.CategoryGateway;
@@ -82,6 +83,23 @@ public class SaveCategoryUseCaseTest extends UseCaseTest {
                 InstantUtils.now(),
                 null
         );
+
+        // when
+        final var actualError = assertThrows(DomainException.class, () -> this.useCase.execute(aCategory));
+
+        // then
+        assertEquals(expectedErrorCount, actualError.getErrors().size());
+        assertEquals(expectedErrorMessage, actualError.getErrors().get(0).message());
+
+        verify(categoryGateway, times(0)).save(eq(aCategory));
+    }
+
+    @Test
+    public void givenNullCategory_whenCallsSave_shouldReturnError() {
+        // given
+        final Category aCategory = null;
+        final var expectedErrorCount = 1;
+        final var expectedErrorMessage = "'aCategory' cannot be null";
 
         // when
         final var actualError = assertThrows(DomainException.class, () -> this.useCase.execute(aCategory));
