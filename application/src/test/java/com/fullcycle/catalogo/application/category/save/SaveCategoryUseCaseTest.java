@@ -1,7 +1,6 @@
 package com.fullcycle.catalogo.application.category.save;
 
 import com.fullcycle.catalogo.application.UseCaseTest;
-import com.fullcycle.catalogo.application.category.SaveCategoryUseCase;
 import com.fullcycle.catalogo.domain.Fixture;
 import com.fullcycle.catalogo.domain.category.Category;
 import com.fullcycle.catalogo.domain.category.CategoryGateway;
@@ -18,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.AdditionalAnswers.returnsFirstArg;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import com.fullcycle.catalogo.application.UseCaseTest;
 
 public class SaveCategoryUseCaseTest extends UseCaseTest {
     @InjectMocks

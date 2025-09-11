@@ -1,4 +1,4 @@
-package com.fullcycle.catalogo.application.category;
+package com.fullcycle.catalogo.application.category.save;
 
 import com.fullcycle.catalogo.application.UseCase;
 import com.fullcycle.catalogo.domain.category.Category;
