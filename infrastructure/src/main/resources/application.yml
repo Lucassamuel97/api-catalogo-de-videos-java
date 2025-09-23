@@ -1,3 +1,7 @@
+elasticsearch:
+  connect-timeout: 250
+  socket-timeout: 1_000
+
 server:
   port: 8080
   servlet:
@@ -12,6 +16,12 @@ server:
       io: 4 # One IO thread per CPU core is a reasonable default: https://undertow.io/undertow-docs/undertow-docs-2.1.0/index.html#listeners-2
 
 spring:
+  elasticsearch:
+    uris: ${elasticsearch.uris:http://localhost:9200}
+    username: ${elasticsearch.username:elastic}
+    password: ${elasticsearch.password:secret}
+    connect-timeout: ${elasticsearch.connect-timeout:250}
+    socket-timeout: ${elasticsearch.socket-timeout:1000}
   graphql:
     graphiql:
       enabled: true
