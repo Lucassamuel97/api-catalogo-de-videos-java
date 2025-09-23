@@ -23,6 +23,9 @@ dependencies {
 
     implementation("com.google.guava:guava:33.0.0-jre")
 
+    implementation 'org.webjars:webjars-locator-core'
+    implementation 'org.webjars.npm:graphiql:3.0.6' // ou uma versão mais recente
+
     implementation("com.fasterxml.jackson.module:jackson-module-afterburner")
 
     implementation("io.github.resilience4j:resilience4j-spring-boot3")
