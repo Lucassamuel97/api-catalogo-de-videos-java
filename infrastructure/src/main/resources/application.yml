@@ -17,11 +17,11 @@ server:
 
 spring:
   elasticsearch:
-    uris: ${elasticsearch.uris}
-    username: ${elasticsearch.username}
-    password: ${elasticsearch.password}
-    connect-timeout: ${elasticsearch.connect-timeout}
-    socket-timeout: ${elasticsearch.socket-timeout}
+    uris: ${elasticsearch.uris:http://localhost:9200}
+    username: ${elasticsearch.username:elastic}
+    password: ${elasticsearch.password:secret}
+    connect-timeout: ${elasticsearch.connect-timeout:250}
+    socket-timeout: ${elasticsearch.socket-timeout:1000}
   graphql:
     graphiql:
       enabled: true
@@ -39,4 +39,3 @@ spring:
         jwt:
           jwk-set-uri: ${keycloak.host}/realms/${keycloak.realm}/protocol/openid-connect/certs
           issuer-uri: ${keycloak.host}/realms/${keycloak.realm}
-

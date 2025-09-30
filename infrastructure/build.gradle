@@ -37,7 +37,7 @@ dependencies {
     implementation("org.cache2k:cache2k-spring:$cache2k")
     runtimeOnly("org.cache2k:cache2k-core:$cache2k")
 
-    implementation("org.springdoc:springdoc-openapi-webmvc-core:1.7.0")
+    implementation("org.springdoc:springdoc-openapi-webmvc-core:1.8.0")
     implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
 
     implementation("org.springframework.boot:spring-boot-starter-web") {
