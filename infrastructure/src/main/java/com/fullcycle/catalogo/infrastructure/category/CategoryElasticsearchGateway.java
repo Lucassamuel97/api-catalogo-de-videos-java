@@ -8,12 +8,12 @@ import com.fullcycle.catalogo.infrastructure.category.persistence.CategoryDocume
 import com.fullcycle.catalogo.infrastructure.category.persistence.CategoryRepository;
 import org.springframework.data.elasticsearch.core.SearchOperations;
 import org.springframework.stereotype.Component;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.data.elasticsearch.core.query.Query;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
 import java.util.Optional;
