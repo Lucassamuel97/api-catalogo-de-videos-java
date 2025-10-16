@@ -1,0 +1,43 @@
+version: '3.7'
+
+name: catalogo
+
+services:
+  kafka-connect:
+    image: debezium/connect:1.9
+    container_name: kafka-connect
+    ports:
+      - 8083:8083
+    networks:
+      - adm_videos_services
+      - kafka
+    environment:
+      BOOTSTRAP_SERVERS: kafka:9092
+      GROUP_ID: kafka-connect
+      CONFIG_STORAGE_TOPIC: _connect-configs
+      OFFSET_STORAGE_TOPIC: _connect-offsets
+      STATUS_STORAGE_TOPIC: _connect-status
+      KEY_CONVERTER: org.apache.kafka.connect.storage.StringConverter
+      VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      INTERNAL_KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      INTERNAL_VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      REST_ADVERTISED_HOST_NAME: catalogo-kafka-connect
+      CONFIG_STORAGE_REPLICATION_FACTOR: "1"
+      OFFSET_STORAGE_REPLICATION_FACTOR: "1"
+      STATUS_STORAGE_REPLICATION_FACTOR: "1"
+      KEY_CONVERTER_SCHEMAS_ENABLE: "false"
+      VALUE_CONVERTER_SCHEMAS_ENABLE: "false"
+    volumes:
+      - kconnect01:/kafka/connect
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+
+networks:
+  adm_videos_services:
+    external: true
+  kafka:
+    external: true
+
+volumes:
+  kconnect01:
+    external: true
