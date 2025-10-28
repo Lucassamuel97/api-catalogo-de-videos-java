@@ -11,7 +11,7 @@ docker volume create kconnect01
 # Criar as pastas com permissões
 docker compose -f elk/docker-compose.yml up -d elasticsearch
 docker compose -f kafka/docker-compose.yml up -d
-docker compose -f catalogo_services/docker-compose.yml up -d
+docker compose -f services/docker-compose.yml up -d
 
 echo "Inicializando os containers..."
 sleep 20
